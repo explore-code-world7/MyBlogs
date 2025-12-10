@@ -313,3 +313,14 @@ print(result)  # 输出: tensor([2, 6, 7])
 # 多继承init函数书写
 
 * init函数
+
+# output func transfer stack
+
+```python
+import traceback
+
+def func():
+    traceback.print_stack()
+
+func()
+```
