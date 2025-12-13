@@ -374,7 +374,8 @@ git submodule update --init --recursive
 
 ```python
 git submodule init
-git push --recurse-submodules=check
+git push
+# --recurse-submodules=check
 ```
 
 ## git pull自动拉取子仓库
