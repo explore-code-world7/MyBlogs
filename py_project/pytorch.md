@@ -321,3 +321,45 @@ print(result.shape)  # 输出的形状为 (2, 3)
 ```
 
 这些示例展示了如何使用 `vmap` 来批量处理不同的操作。你可以根据需求调整输入和输出的维度，以实现你的功能需求。如果你有其他问题，请告诉我！
+
+# freeze net params
+## method1:
+
+```python
+# 冻结conv1和conv2
+for param in model.conv1.parameters():
+    param.requires_grad = False
+for param in model.conv2.parameters():
+    param.requires_grad = False
+
+# 但fc1和fc2仍可训练
+for param in model.fc1.parameters():
+    param.requires_grad = True
+for param in model.fc2.parameters():
+    param.requires_grad = True
+```
+
+## method2:
+```python
+def freeze_by_pattern(model, patterns):
+    """按模式冻结参数"""
+    for name, param in model.named_parameters():
+        if any(pattern in name for pattern in patterns):
+            param.requires_grad = False
+            print(f"Frozen: {name}")
+        else:
+            param.requires_grad = True
+
+# 冻结所有包含'conv'或'bn'的参数
+freeze_by_pattern(model, ['conv', 'bn'])
+```
+## 冻结特定类型的层
+```python
+# 冻结所有卷积层
+for name, module in model.named_modules():
+    if isinstance(module, nn.Conv2d):
+        for param in module.parameters():
+            param.requires_grad = False
+```
+
+
