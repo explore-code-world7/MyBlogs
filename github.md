@@ -430,9 +430,19 @@ git submodule update --remote --merge
 * 更新子模块到最新 upstream	git submodule update --remote
 
 ## git push自动推送子repo
-
+### m1:
 ```bash
-git submodule foreach 'git push'
+cd submodule
+git commit
+git push
+cd ..
+git add submodule
+git commit
+git push
+```
+### automatically
+```bash
+git submodule foreach 'git add .; git commit --amend --no-edit; git push origin test --force'
 ```
 
 # points
