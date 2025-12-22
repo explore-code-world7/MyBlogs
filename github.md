@@ -395,10 +395,11 @@ git submodule init
 3. 自动拉取远程分支
 
 ```bash
-git submodule foreach git pull
+git submodule foreach "git reset --hard  HEAD~1; git pull remote local_branch"
 ```
+* 或者直接进入子仓库，git reset+pull
 
-### 方法2
+### 方法2(否决)
 
 1. 在main repo中设置子仓库.git
 
@@ -416,6 +417,15 @@ git pull --recurse-submodules
 * 若该 commit 之前本地没有 → 自动下载
 * ✅ 保证主仓库 + 子模块状态一致
 * 这个够用了
+等于如下命令，导致submodule处于detached HEAD>commit status;
+```bash
+cd rsl_rl
+git fetch
+git checkout origin/test
+cd ..
+git add rsl_rl
+git commit
+```
 
 3. 拉取
 
