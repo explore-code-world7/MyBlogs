@@ -1,8 +1,30 @@
-选glfw
+# gl自带函数
+
+glClear – 清除缓冲区。
+
+glClearColor – 设置清除颜色。
+
+glEnable / glDisable – 启用/禁用某些功能（如深度测试、混合等）。
+
+glGenBuffers / glBindBuffer / glBufferData – 用于创建、绑定和设置缓冲区数据。
+
+glGenTextures / glBindTexture / glTexImage2D – 用于创建和操作纹理。
+
+glUseProgram – 激活着色器程序。
+
+glDrawArrays / glDrawElements – 绘制图形。
+
+glClearDepth – 设置深度缓冲区清除值。
+
+glBlendFunc – 设置混合函数。
+
+glLineWidth / glPointSize – 设置线宽和点大小。
+
+glviewport -设置窗口的大小
 
 # 创建窗口
 
-```
+```cpp
 int main()
 {
     glfwInit();
@@ -13,4 +35,10 @@ int main()
   
     return 0;
 }
+```
+
+# 窗口尺寸变化时自动调用
+
+```cpp
+glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 ```
