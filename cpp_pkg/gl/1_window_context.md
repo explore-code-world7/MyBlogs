@@ -6,6 +6,10 @@ sudo apt-get install freeglut3-dev
 gcc filename.c -lGL -lGLU -lglut
 ```
 
+* 安装glfw
+```bash
+sudo apt-get install libglfw3-dev
+```
 
 
 # gl自带函数
