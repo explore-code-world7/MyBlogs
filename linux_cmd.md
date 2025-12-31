@@ -1,6 +1,12 @@
 > Linux的命令，用suffix= "--help"就知道用法了
 
-## snap 关闭自动更新
+# 恢复默认.bashrc
+
+```bash
+cp /etc/skel/.bashrc ~/.bashrc
+```
+
+# snap 关闭自动更新
 
 ```bash
 sudo snap refresh --hold
