@@ -2,15 +2,42 @@
 
 着色器 用 GLSL(OpenGL Shading Language) 库编写;
 ```cpp
-#a vertext shader
+#a vertex shader
 #version 330 core
-layout (location = 0) in vec3 aPos;
+
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec3 aColor;
+layout(location = 2) in vec2 aTex;
+
+layout(location = 0) out vec3 vColor;
+layout(location = 1) out vec2 vTex;
 
 void main()
 {
-    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+    gl_Position = vec4(aPos, 1.0);
+    vColor = aColor;
+    vTex   = aTex;
 }
 ```
+* Vertex Shader 的输出=(gl_Position+ layout out);
+* Fragment Shader 的输出=(out + layout)
+
+```cpp
+// Fragment Shader
+#version 330 core
+
+layout(location = 0) in vec3 vColor;
+layout(location = 1) in vec2 vTex;
+
+out vec4 FragColor;
+
+void main()
+{
+    FragColor = vec4(vColor, 1.0);
+}
+
+```
+
 
 分为若干阶段: 
 ##
