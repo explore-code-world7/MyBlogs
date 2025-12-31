@@ -1,6 +1,16 @@
 着色=把3D 坐标转为屏幕上2D带颜色点;
 
-着色器在 GLSL(OpenGL Shading Language)中;
+着色器 用 GLSL(OpenGL Shading Language) 库编写;
+```cpp
+#a vertext shader
+#version 330 core
+layout (location = 0) in vec3 aPos;
+
+void main()
+{
+    gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+}
+```
 
 分为若干阶段: 
 ##
