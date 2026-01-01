@@ -1,5 +1,6 @@
+* Pangolin是一个窗口管理类
 
-# Pangolin是OpenGL的封装类
+# 对OpenGL的基础类进行封装
 * 以GlTexture为例
 
 | 特性     | OpenGL 原生             | Pangolin `GlTexture`       |
@@ -19,3 +20,4 @@
 ```cpp
 GLuint texID = texVideo.texture_id;
 ```
+
