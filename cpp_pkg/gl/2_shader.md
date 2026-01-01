@@ -78,3 +78,41 @@ rasterization
 
 >  A fragment in OpenGL is all the data required for OpenGL to render a single pixel.
 
+
+# set IO format = multiple vertex
+
+```glsl
+layout ( triangles ) in;
+layout ( , max_vertices = 3 ) out;
+```
+
+* 设置输入为3个顶点
+* triangle_strip是什么数据类型?
+
+## 相应, I=array
+
+```glsl
+in vec4 position_world[];
+in vec3 viewDirection_camera[];
+```
+## but O=vertex
+```glsl
+    normal_camera = normal_cam;
+    normal_world = normal;
+    xyz_world = position_world[0];
+    xyz_camera = V * xyz_world;
+    viewDirection_cam = viewDirection_camera[0];
+    gl_PrimitiveID = gl_PrimitiveIDIn;
+    EmitVertex();
+    ...
+    EndPrimitive();    
+```
+
+* submiited by Emit Vertext() and EndPrimitive();
+
+
+# transform to pixel space: MVP
+1. M: model space > world
+2. V: world space > camera
+3. P: camera space > pixel
+$\in R^{4\times 4}$
