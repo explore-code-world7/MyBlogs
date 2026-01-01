@@ -1,4 +1,7 @@
 * Pangolin是一个窗口管理类
+* 采用和OPENGL类似的形式，渲染image和video,
+
+
 
 # 对OpenGL的基础类进行封装
 * 以GlTexture为例
@@ -20,4 +23,6 @@
 ```cpp
 GLuint texID = texVideo.texture_id;
 ```
+
+***
 
