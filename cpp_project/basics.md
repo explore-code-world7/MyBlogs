@@ -7,3 +7,34 @@
 | `/usr/local/include` | 头文件     | **C/C++ 的头文件**（.h/.hpp），供编译器在编译时引用 |
 | `/usr/local/share`   | 架构无关的数据 | 文档、配置文件、pkgconfig、样例数据等，不依赖 CPU 架构 |
 
+
+* include是头文件库，用于编译成.o文件
+* lib是链接库，用于链接库文件.a成.so
+* share是用于头文件库的CMake配置文件用于索引，或者存放架构无关数据
+
+## /usr/local/share/eigen3/cmake
+
+CMake 使用 find_package(Eigen3) 查找 Eigen3。
+
+/usr/local/share/eigen3/cmake 里面通常有：
+
+Eigen3Config.cmake
+
+Eigen3ConfigVersion.cmake
+
+这些文件告诉 CMake：
+
+Eigen3 的 头文件路径（Eigen 是头文件库，没有 .so 或 .a）
+
+版本信息
+
+包含目录设置方式
+
+举例：
+
+```cpp
+find_package(Eigen3 3.4 REQUIRED)
+target_include_directories(my_target PRIVATE ${EIGEN3_INCLUDE_DIR})
+```
+
+CMake 就会读取 /usr/local/share/eigen3/cmake/Eigen3Config.cmake，自动找到头文件路径。
