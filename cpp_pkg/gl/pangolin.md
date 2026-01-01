@@ -128,3 +128,15 @@ OpenGL 纹理包装器，提供纹理上传、下载和渲染功能 [7](#4-6)
 
 这种设计支持复杂的3D模型，包括多个子对象和纹理。实际使用中，通常通过 `LoadGeometry()` 从文件加载，然后访问相应的属性数据进行渲染或处理。
 
+
+# Draw
+
+```python
+    prog.Bind();
+    prog.SetUniform("MVP", s_cam.GetProjectionModelViewMatrix());
+    prog.SetUniform("V", s_cam.GetModelViewMatrix());
+
+    //使用给定的 GLSL 着色器程序，把一个几何体画出来
+    pangolin::GlDraw(prog, gl_geom, nullptr);
+    prog.Unbind();
+```
