@@ -1,8 +1,19 @@
 # hf download
 ```bash
 hf download ShapeNet/ShapeNetCore --repo-type=dataset \
-    --local-dir ./ --max-workers 4
+    --local-dir ./ --cache-dir= ./ --max-workers 4
 ```
+
+🪫: env.python >=3.9 is required by hf cli
+
+```python
+远端
+ ↓
+cache-dir        ← 断点续传、校验
+ ↓
+local-dir        ← 你实际使用的数据
+```
+
 
 # snapshot_download
 ```
