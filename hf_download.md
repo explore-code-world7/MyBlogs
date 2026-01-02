@@ -5,10 +5,17 @@ hf download ShapeNet/ShapeNetCore --repo-type=dataset \
 
 conda deactivate
 hf download ShapeNet/ShapeNetCore-archive --repo-type=dataset \
-    --local-dir=./ --cache-dir=/tmp/hf_cache
+    --local-dir=./ --cache-dir=./
 ```
 
 🪫: env.python >=3.9 is required by hf cli
+
+## 卡住
+* 之前的进程未kill
+```bash
+ps aux | grep hf
+```
+
 
 ```python
 远端
