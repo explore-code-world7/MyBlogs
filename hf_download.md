@@ -3,7 +3,7 @@
 hf download ShapeNet/ShapeNetCore --repo-type=dataset \
     --local-dir ./ --cache-dir= ./ --max-workers 1
 
-hf download ShapeNet/ShapeNetCore --repo-type=dataset \
+hf download ShapeNet/ShapeNetCore-archive --repo-type=dataset \
     --local-dir ./ --cache-dir= ./ --max-workers 1
 ```
 
