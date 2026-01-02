@@ -231,3 +231,15 @@ du -a -h -d 1
 ibus   restart
 ibus-daemon   -drx
 ```
+
+
+# 挂载-升级权限
+
+```bash
+sudo umount /media/sky/SSD
+
+# 选项A：使用默认权限（推荐）
+sudo mount -o rw,uid=1000,gid=1000,iocharset=utf8 /dev/sda1 /media/sky/SSD
+# 选项B：给予所有用户完全权限（最宽松）
+sudo mount -o rw,uid=1000,gid=1000,umask=000,iocharset=utf8 /dev/sda1 /media/sky/SSD
+```
