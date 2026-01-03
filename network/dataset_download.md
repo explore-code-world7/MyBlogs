@@ -40,23 +40,6 @@ snapshot_download(
 ```
 
 # unzip
-* bsdtar
-```bash
-# 1. 安装
-sudo apt install libarchive-tools
-
-# 2. 解压（它会自动尝试最优方式）
-bsdtar -xf ShapeNetCore.v1.zip
-```
-
-* zip内的tar
-```bash
-# 1. 安装pigz
-sudo apt install pigz
-
-# 2. 流式解压（如果zip内是tar.gz/tar）
-unzip -p ShapeNetCore.v1.zip | pigz -dc | tar xf -
-```
 * zip
 ```bash
 # 1. 安装（如果尚未安装）
@@ -67,4 +50,22 @@ sudo apt install p7zip-full
 
 # 3. 如果想静默解压且不覆盖已有文件，可加-o和-y参数
 7z x ShapeNetCore.v1.zip -mmt=on -o./ -y
+```
+
+* zip
+```bash
+# 1. 安装
+sudo apt install libarchive-tools
+
+# 2. 解压（它会自动尝试最优方式）
+bsdtar -xvf ShapeNetCore.v1.zip
+```
+
+* zip内的tar
+```bash
+# 1. 安装pigz
+sudo apt install pigz
+
+# 2. 流式解压（如果zip内是tar.gz/tar）
+unzip -p ShapeNetCore.v1.zip | pigz -dc | tar xf -
 ```
