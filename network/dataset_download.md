@@ -57,7 +57,7 @@ sudo apt install pigz
 # 2. 流式解压（如果zip内是tar.gz/tar）
 unzip -p ShapeNetCore.v1.zip | pigz -dc | tar xf -
 ```
-* 7z
+* zip
 ```bash
 # 1. 安装（如果尚未安装）
 sudo apt install p7zip-full
