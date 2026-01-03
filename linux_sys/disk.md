@@ -18,6 +18,15 @@ bsdtar -xf ShapeNetCore.v1.zip -C /path/to/ spacious_target/
 rsync -avh --progress --partial   --partial-dir=.rsync-partial  /media/sky/835c4fa2-7263-4df6-880c-3dedf3db1024/Dataset/CV/ShapeNetCore.v2.zip   ./
 ```
 
+# 上传到服务器
+```bash
+# 1. 先创建断点保存目录
+mkdir .rsync-partial
+
+# 2. 上传
+rsync -avhP --partial-dir=.rsync-partial -e "ssh -p 10022"  /media/sky/835c4fa2-7263-4df6-880c-3dedf3db1024/Dataset/CV/pose_est/ShapeNetCore.v1.zip    chenlei@10.15.82.118:/home/chenlei/
+```
+
 
 # 日志存储位置是坏块
 
