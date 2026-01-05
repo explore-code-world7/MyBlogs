@@ -24,8 +24,7 @@ Eigen3ConfigVersion.cmake
 
 这些文件告诉 CMake：
 
-Eigen3 的 头文件路径（Eigen 是头文件库，没有 .so 或 .a）
-
+EEigen3 的 头文件路径（Eigen 是头文件库，没有 .so 或 .a）
 版本信息
 
 包含目录设置方式
