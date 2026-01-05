@@ -22,6 +22,7 @@ with Pool(processes=concurrent_processes) as pool:
         print(f"第 {i+1} 批完成")
 ```
 
+* maps只接受一个参数
 
 
 # ProcessPoolExecutor
