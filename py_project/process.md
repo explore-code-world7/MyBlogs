@@ -1,3 +1,28 @@
+# ThreadPoolExecutor
+```python
+import concurrent.futures
+
+    with concurrent.futures.ThreadPoolExecutor(
+        max_workers=int(args.num_threads)
+    ) as executor:
+
+        for (
+            mesh_filepath,
+            target_filepath,
+            specific_args,
+        ) in meshes_targets_and_specific_args:
+
+            executor.submit(
+                process_mesh,
+                mesh_filepath,
+                target_filepath,
+                executable,
+                specific_args + additional_general_args,
+            )
+
+        executor.shutdown()
+```
+
 
 # pool
 
