@@ -4,6 +4,11 @@
 ```bash
 watch -n 2 -d "free -h"
 ```
+* top 查看那CPU
+* 系统管理小能手
+
+<img width="2292" height="249" alt="image" src="https://github.com/user-attachments/assets/947eb0c0-a9a3-4879-b4ff-c4468f5de6a1" />
+
 
 # 恢复默认.bashrc
 
