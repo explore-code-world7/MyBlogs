@@ -1,5 +1,10 @@
 > Linux的命令，用suffix= "--help"就知道用法了
 
+# real-time fresh
+```bash
+watch -n 2 -d "free -h"
+```
+
 # 恢复默认.bashrc
 
 ```bash
