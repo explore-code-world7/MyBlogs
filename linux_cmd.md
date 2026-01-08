@@ -350,3 +350,15 @@ awk -f script.awk file.txt
 ### 小结
 
 AWK 是一个极为灵活的工具，适用于多种文本处理场景。无论是简单的字段提取，还是复杂的数据分析，AWK 都能够高效处理。希望这些示例能帮助你在 Bash 中有效地使用 AWK！如果你有具体的应用场景或者问题，欢迎继续询问！
+
+# xargs
+
+```bash
+(legged-rsl) chenlei@118:~/Project/DeepSDF$ echo 'one two three' | xargs -n 1 -d " " -I {} echo "Item: {}"
+Item: one
+Item: two
+Item: three
+```
+* -d " "按空格划分;
+* -I 按“行”处理, 不再按空格拆分
+* -n 每次只传x个参数
