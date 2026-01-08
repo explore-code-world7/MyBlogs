@@ -1,3 +1,26 @@
+# 更新ubuntu默认cuda
+* 查看当前版本
+```bash
+(legged-rsl) sky@night:~/Downloads$ ls -l /usr/local/cuda
+lrwxrwxrwx 1 root root 22  9月  6 08:46 /usr/local/cuda -> /etc/alternatives/cuda
+(legged-rsl) sky@night:~/Downloads$ ls -l /etc/alternatives/cuda
+lrwxrwxrwx 1 root root 20  9月  6 08:46 /etc/alternatives/cuda -> /usr/local/cuda-12.4
+```
+
+* 查看alternatives并更新
+```bash
+sudo update-alternatives --config cuda
+# 更新
+sudo update-alternatives --install /usr/local/cuda cuda /usr/local/cuda-11.8 80
+```
+
+* 用环境变量更新
+```bash
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
+```
+
+
 # pip 特定版本+特定版本的cuda
 
 ```python
