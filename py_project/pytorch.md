@@ -1,5 +1,8 @@
 ## batch training
 
+# python版本-pypi
+pypi.org/project/torch/2.0.0/
+
 # cuda out of memory
 
 0. 按批load to gpu
