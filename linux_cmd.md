@@ -253,3 +253,100 @@ sudo mount -o rw,uid=1000,gid=1000,iocharset=utf8 /dev/sda1 /media/sky/SSD
 # 选项B：给予所有用户完全权限（最宽松）
 sudo mount -o rw,uid=1000,gid=1000,umask=000,iocharset=utf8 /dev/sda1 /media/sky/SSD
 ```
+
+# awk
+
+## Bash 中的 AWK 用法
+
+AWK 是一种强大的文本处理工具，适合用于数据的格式化、分析和报告。它特别适合处理结构化文本，如 CSV 文件和日志文件。在 Bash 中，使用 AWK 可以简化复杂的文本处理任务。
+
+### 基本语法
+
+AWK 的通用命令格式如下：
+
+```bash
+awk 'pattern { action }' filename
+```
+
+- **pattern**：匹配输入数据的模式，省略时对所有行操作。
+- **action**：在匹配到模式的行上执行的动作，如果省略，默认是打印整行。
+
+### 举例说明
+
+#### 打印整行
+
+```bash
+awk '{print}' file.txt
+```
+
+#### 打印特定列
+
+```bash
+awk '{print $1, $2}' file.txt
+```
+
+#### 使用分隔符
+
+AWK 默认使用空格作为字段分隔符，可以使用 `-F` 指定其他分隔符：
+
+```bash
+awk -F',' '{print $1, $2}' file.txt
+```
+
+#### 打印行数
+
+```bash
+awk '{print NR, $0}' file.txt
+```
+
+此命令将打印行号和整行内容。
+
+#### 计算列的总和
+
+```bash
+awk '{sum += $1} END {print sum}' file.txt
+```
+
+#### 格式化输出
+
+```bash
+awk '{printf "%-10s %-10s\n", $1, $2}' file.txt
+```
+
+### 条件与循环
+
+AWK 允许使用条件判断来选择性地输出特定行。
+
+#### 过滤特定条件
+
+打印第一列大于2的行：
+
+```bash
+awk '$1 > 2' file.txt
+```
+
+### 使用内置变量
+
+AWK 提供一些内置变量，例如：
+
+- **`NR`**：当前行号。
+- **`NF`**：当前行的字段数。
+- **`$0`**：完整的当前行。
+
+示例：
+
+```bash
+awk '{print NR, NF, $0}' file.txt
+```
+
+### 使用外部脚本
+
+对于较长的 AWK 程序，您可以将代码写入一个文件，并使用 `-f` 选项加载：
+
+```bash
+awk -f script.awk file.txt
+```
+
+### 小结
+
+AWK 是一个极为灵活的工具，适用于多种文本处理场景。无论是简单的字段提取，还是复杂的数据分析，AWK 都能够高效处理。希望这些示例能帮助你在 Bash 中有效地使用 AWK！如果你有具体的应用场景或者问题，欢迎继续询问！
