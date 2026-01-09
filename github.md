@@ -369,6 +369,13 @@ git reset --hard xxx
 git push origin main --force
 ```
 
+## clone with submodules
+```bash
+# by git clone help
+git clone --recurse-submodules git_url
+```
+> 概念是最重要的，概念理解了，其他的--help就能自己完成没写过的指令
+
 ## pull from submodule
 
 * server
