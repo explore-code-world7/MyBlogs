@@ -2,8 +2,6 @@
 
 | 类型 | 旧宏 (OpenCV 3) | 新宏/用法 (OpenCV 4) |
 | :--- | :--- | :--- |
-| `CV_LOAD_IMAGE_COLOR` | **`IMREAD_COLOR`** | 读取图像时将其转换为三通道彩色图。 |
-| `CV_FM_8POINT` | **`FM_8POINT`** | 在计算基础矩阵时，指定使用八点法。 |
 | **图像读取标志** | `CV_LOAD_IMAGE_GRAYSCALE` | `IMREAD_GRAYSCALE` |
 | | `CV_LOAD_IMAGE_UNCHANGED` | `IMREAD_UNCHANGED` |
 | **绘图相关** | `CV_FILLED` | `FILLED` |
