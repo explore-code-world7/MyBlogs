@@ -1,5 +1,11 @@
 着色=把3D 坐标转为屏幕上2D带颜色点;
 
+<img width="724" height="397" alt="image" src="https://github.com/user-attachments/assets/1967e07a-dad6-4b81-805a-7a199d4d5d31" />
+
+1. vertex shader变换坐标；
+2. geometry shader生成新的点；
+3. fragment shader对点上色；
+
 着色器 用 GLSL(OpenGL Shading Language) 库编写;
 ```cpp
 #a vertex shader
