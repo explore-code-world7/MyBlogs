@@ -1,3 +1,17 @@
+# 默认输入法
+* install
+```bash
+sudo apt install -y ibus ibus-libpinyin language-pack-zh-hans
+sudo apt install --reinstall ibus ibus-libpinyin
+```
+
+* 启动
+```bash
+ibus-daemon -drx
+```
+
+
+
 # video edit
 
 ```
