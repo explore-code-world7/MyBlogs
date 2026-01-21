@@ -12,3 +12,6 @@ docker run -it --rm tyoung96/lvi_sam:1.0 /bin/bash
 ```
 docker exec -it <container_id> /bin/bash
 ```
+
+
+# ?修改docker的swap space size
