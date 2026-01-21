@@ -76,5 +76,3 @@ source ~/catkin_ws_a/devel/setup.bash # 覆盖系统，A包优先
 source ~/catkin_ws_b/devel/setup.bash # 覆盖A，B包优先（最后source的优先级最高）
 ```
 
-
-
