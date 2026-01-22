@@ -17,6 +17,17 @@ docker run -it --rm tyoung96/lvi_sam:1.0 /bin/bash
 <img width="1241" height="1041" alt="image" src="https://github.com/user-attachments/assets/aa033dec-7b01-4bde-8c04-f839dd8ef727" />
 
 
+* 同时配置图形界面
+```bash
+docker run -it --name hello_sam2`
+  --env="DISPLAY=host.docker.internal:0.0"`
+  --env="QT_X11_NO_MITSHM=1"`
+  -v /tmp/.X11-unix:/tmp/.X11-unix`
+  -v C:\Users\firefox\catkin_ws:/home/catkin_ws`
+  tyoung96/lvi_sam:1.0`
+  /bin/bash
+```
+
 
 # 2. 进入创建好的container
 ```bash
