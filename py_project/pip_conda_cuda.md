@@ -474,3 +474,19 @@ sudo apt install nvidia-cuda-toolkit
 ## runtime cuda_toolkit install
 
 [CUDA Toolkit 12.4 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
+
+# nvcc
+## `bash: nvcc: command not found`
+* 查找CUDA
+```bash
+# 检查是否有CUDA驱动
+nvidia-smi
+# 查找可能的CUDA安装路径
+find /usr/local -name "nvcc" 2>/dev/null
+ls /usr/local/cuda*/bin/nvcc 2>/dev/null
+```
+* 指定路径
+```bash
+export CUDA_HOME=/usr/local/cuda-12.4
+export PATH=$CUDA_HOME/bin:$PATH
+```
