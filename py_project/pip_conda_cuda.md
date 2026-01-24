@@ -476,6 +476,37 @@ sudo apt install nvidia-cuda-toolkit
 [CUDA Toolkit 12.4 Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-12-4-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
 
 # nvcc
+## introduction
+**`nvcc`（NVIDIA CUDA Compiler）是NVIDIA官方提供的、专门用于编译CUDA C/C++代码的编译器驱动**。简单说，它是将你用类C语言写的GPU并行计算代码（`.cu`文件），翻译成GPU能直接执行的机器指令的工具。
+
+🎯 核心理解：`nvcc` 是什么？
+
+| 维度 | 说明 |
+| :--- | :--- |
+| **身份** | NVIDIA CUDA Toolkit 的核心命令行工具。 |
+| **作用** | **编译CUDA代码**。它将`.cu`源文件（包含CPU主机代码和GPU设备内核）分离、转换，最终生成可在GPU上执行的可执行文件或库。 |
+| **类比** | 如同 `gcc`/`g++` 之于C/C++，`javac` 之于Java。没有它，CUDA程序就无法构建。 |
+
+🔧 `nvcc` 在编译流程中的关键角色
+当你编译一个PyTorch CUDA扩展（如你的 `torch_nndistance`）时，幕后流程大致如下，`nvcc` 处于核心位置：
+
+```mermaid
+flowchart TD
+    A[“.cu 源文件<br>（GPU内核代码）”] --> B
+    
+    subgraph B [nvcc 核心处理过程]
+        B1[“分离主机(Host)与设备(Device)代码”]
+        B1 --> B2[“编译设备代码为PTX虚拟指令集”]
+        B2 --> B3[“进一步编译为特定GPU架构的机器码<br>（如 sm_86 for RTX 30系列）”]
+    end
+    
+    B --> C[“生成.o目标文件或.so动态库”]
+    C --> D[“与PyTorch C++扩展胶水代码链接”]
+    D --> E[“最终生成 .so 文件<br>Python可直接导入使用”]
+    
+    F[“Python setup.py”] -- “调用” --> B
+```
+
 ## `bash: nvcc: command not found`
 * 查找CUDA
 ```bash
