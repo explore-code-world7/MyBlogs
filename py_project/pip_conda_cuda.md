@@ -501,7 +501,7 @@ flowchart TD
     end
     
     B --> C["生成.o目标文件或.so动态库"]
-    C --> D["与PyTorch C++扩展胶水代码链接”]
+    C --> D["与PyTorch C++扩展胶水代码链接"]
     D --> E["最终生成 .so 文件<br>Python可直接导入使用"]
     
     F["Python setup.py"] -- "调用" --> B
