@@ -19,3 +19,28 @@ ssh -p 10022  chenlei@10.xxx -i  /path/to/private_key
 ```bash
 ssh-add  private_key
 ```
+
+# git-shell-win
+
+* 没什么卵用
+
+```powershell
+Get-Service ssh-agent
+Set-Service ssh-agent -StartupType Automatic
+Start-Service ssh-agent
+ssh-add C:\Users\firefox\.ssh\win11
+```
+
+# git-bash-win
+
+* 编辑~\\.ssh\\config
+
+```bash
+# 添加配置自动寻找
+Host github.com
+        HostName github.com
+        User git
+        IdentityFile ~/.ssh/win11
+        IdentitiesOnly yes
+```
+

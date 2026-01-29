@@ -41,7 +41,7 @@ cat /path/to/key/name/without/suffix.pub
 * 将密钥添加到ssh-agent中，这样重装也能用
 
 ```bash
-eval "(ssh-agent -s)"
+eval "$(ssh-agent -s)"
 # 添加密钥
 ssh-add  /path/to/key/name/without/suffix
 # list out& delete
