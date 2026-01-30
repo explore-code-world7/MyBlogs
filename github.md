@@ -1,8 +1,11 @@
 # CRLF换行符配置
 ## core.autocrlf
 设置值	提交时（到仓库）	检出时（到工作目录）	适用场景
+
 true	CRLF → LF	LF → CRLF	纯 Windows 开发（推荐）
+
 input	CRLF → LF	不做转换（保持 LF）	跨平台开发（Linux/Mac 开发者推荐）
+
 false	不做转换	不做转换	明确知道自己在做什么，或使用 .gitattributes
 
 ## 两种推荐的团队配置策略
